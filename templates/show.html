@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class = "wrapper">
+        <div class = "value_section">
+            <h3 class="display-6 underline_header">Submitted Info: </h3>
+            <div class = "header_section">
+                <p>Name:</p>
+                <p>Dojo Location:</p>
+                <p>Favorite Language:</p>
+                <p>Ready to commit?</p>
+                <p>How did you hear about us?</p>
+                <p>Comment:</p>
+            </div>
+            <div class = "result_section">
+                <p>{{ name_on_template }}</p>
+                <p>{{ location_on_form }}</p>
+                <p>{{ language_on_form }}</p>
+                <p>{{ commit_on_form }}</p>
+                <p>{{ hear_on_form|join(', ') }}</p>
+                <p>{{ comment_on_form }}</p>
+            </div>
+            <form action = '/'>
+                <input class="btn btn-primary margin_left_btn" type="submit" value="Go Back">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

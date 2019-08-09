@@ -1,0 +1,44 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.wrapper {
+    margin: 0px auto;
+    padding: 50px;
+    width: 1280px;
+}
+
+.gold_box {
+    border: 1px solid black;
+    width: 200px;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+p {
+    display: inline-block
+}
+
+.gold_section {
+    margin-left: 20px;
+}
+
+.place_box {
+    display: inline-block; 
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid black;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+    vertical-align: top;
+}
+
+.activity_messages {
+    margin-left: 20px;
+    height:200px;
+    width:1000px;
+    border:1px solid #ccc;
+    overflow:auto;
+}

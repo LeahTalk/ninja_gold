@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class = "wrapper">
+        <div class = "gold_section">
+            <p style = 'display: inline-block'>Your Gold: </p>
+            <div class = 'gold_box'>
+                {{ session['gold_amount'] }}
+            </div>
+            <form action = '/reset'>
+                <input class="btn btn-primary" type="submit" value="Reset!">
+            </form>
+        </div>
+        <div class = 'place_box'>
+            <h2>Farm</h2>
+            <p>(earns 10-20 gold)</p>
+            <form action = '/process_money' method = 'post'>
+                <input type="hidden" id="farm" name="place" value="farm">
+                <input class="btn btn-primary" type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class = 'place_box'>
+            <h2>Cave</h2>
+            <p>(earns 5-10 gold)</p>
+            <form action = '/process_money' method = 'post'>
+                <input type="hidden" id="cave" name="place" value="cave">
+                <input class="btn btn-primary" type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class = 'place_box'>
+            <h2>House</h2>
+            <p>(earns 2-5 gold)</p>
+            <form action = '/process_money' method = 'post'>
+                <input type="hidden" id="house" name="place" value="house">
+                <input class="btn btn-primary" type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class = 'place_box'>
+            <h2>Casino</h2>
+            <p>(earns/takes 0-50 gold)</p>
+            <form action = '/process_money' method = 'post'>
+                <input type="hidden" id="casino" name="place" value="casino">
+                <input class="btn btn-primary" type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <p style = 'margin-left: 20px'>Activities: </p>
+        <div class = 'activity_messages'>
+            {% for i in range(session['activities']|length - 1, -1, -1) %}
+                <p style = "display: block; color: {{session['activities'][i][1]}}">{{session['activities'][i][0]}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
