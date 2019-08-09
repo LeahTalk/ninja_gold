@@ -13,16 +13,17 @@
             <div class = 'gold_box'>
                 {{ session['gold_amount'] }}
             </div>
-            <form action = '/reset'>
-                <input class="btn btn-primary" type="submit" value="Reset!">
-            </form>
         </div>
+        <p style = 'margin-left: 20px; display: block'> {{ remaining_moves }}</p>
+        <form action = '/reset'>
+            <input class="btn btn-primary" type="submit" value="Play Again?" style = "display: {{reset_display}}; margin-left: 20px">
+        </form>
         <div class = 'place_box'>
             <h2>Farm</h2>
             <p>(earns 10-20 gold)</p>
             <form action = '/process_money' method = 'post'>
                 <input type="hidden" id="farm" name="place" value="farm">
-                <input class="btn btn-primary" type="submit" value="Find Gold!">
+                <input class="btn btn-primary" type="submit" value="Find Gold!" style = "display: {{gold_button_display}}">
             </form>
         </div>
         <div class = 'place_box'>
@@ -30,7 +31,7 @@
             <p>(earns 5-10 gold)</p>
             <form action = '/process_money' method = 'post'>
                 <input type="hidden" id="cave" name="place" value="cave">
-                <input class="btn btn-primary" type="submit" value="Find Gold!">
+                <input class="btn btn-primary" type="submit" value="Find Gold!" style = "display: {{gold_button_display}}">
             </form>
         </div>
         <div class = 'place_box'>
@@ -38,7 +39,7 @@
             <p>(earns 2-5 gold)</p>
             <form action = '/process_money' method = 'post'>
                 <input type="hidden" id="house" name="place" value="house">
-                <input class="btn btn-primary" type="submit" value="Find Gold!">
+                <input class="btn btn-primary" type="submit" value="Find Gold!" style = "display: {{gold_button_display}}">
             </form>
         </div>
         <div class = 'place_box'>
@@ -46,7 +47,7 @@
             <p>(earns/takes 0-50 gold)</p>
             <form action = '/process_money' method = 'post'>
                 <input type="hidden" id="casino" name="place" value="casino">
-                <input class="btn btn-primary" type="submit" value="Find Gold!">
+                <input class="btn btn-primary" type="submit" value="Find Gold!" style = "display: {{gold_button_display}}">
             </form>
         </div>
         <p style = 'margin-left: 20px'>Activities: </p>

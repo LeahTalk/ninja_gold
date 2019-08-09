@@ -16,10 +16,6 @@
     padding-left: 10px;
 }
 
-p {
-    display: inline-block
-}
-
 .gold_section {
     margin-left: 20px;
 }
@@ -39,6 +35,6 @@ p {
     margin-left: 20px;
     height:200px;
     width:1000px;
-    border:1px solid #ccc;
+    border: 1px solid black;
     overflow:auto;
 }

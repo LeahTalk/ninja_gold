@@ -6,13 +6,22 @@ from datetime import datetime
 
 @app.route('/')
 def index():
-  if ('gold_amount' not in session) or ('activities' not in session):
+  if ('gold_amount' not in session) or ('activities' not in session) or ('user_moves' not in session):
     session['gold_amount'] = 0
     session['activities'] = []
-  return render_template('index.html')
+    session['user_moves'] = 0
+  if session['gold_amount'] >= 300:    
+    return render_template('index.html', reset_display = 'inline-block', gold_button_display = "none",
+              remaining_moves = "You win!!! You are a Ninja(gambling) master!")
+  if session['user_moves'] == 15 or session['gold_amount'] < 0:
+    return render_template('index.html', reset_display = 'inline-block', gold_button_display = "none",
+              remaining_moves = "You lose!!! You will never be a true ninja....")
+  return render_template('index.html', reset_display = 'none', gold_button_display = "inline-block",
+   remaining_moves = "Make 300 gold in 15 moves or less! You have " + str(15 - session['user_moves']) + " moves remaining.")
 
 @app.route('/process_money', methods = ['POST'])
 def result():
+  session['user_moves'] += 1
   dateTimeObj = datetime.now()
   dateStr = str(dateTimeObj.year) + '/' + str(dateTimeObj.month) + '/' + str(dateTimeObj.day)
   timeStr = dateTimeObj.strftime("%I:%M %p")
